@@ -44,7 +44,10 @@ const Hero: React.FC = () => {
         >
           <h3 className="cursive mb-3" style={{ color: '#fff', fontSize: '2rem' }}>We are getting married</h3>
           <h1 className="hero-title cursive">Thái Nguyên & Kiều My</h1>
-          <p className="lead mb-5" style={{ fontSize: '1.5rem' }}>30 . 03 . 2026</p>
+          <p className="lead mb-2" style={{ fontSize: '1.5rem' }}>30 . 03 . 2026</p>
+          <p className="mb-5" style={{ fontSize: '1.1rem', fontStyle: 'italic', opacity: 0.9 }}>
+            (Nhằm ngày 12 tháng 2 năm Bính Ngọ)
+          </p>
           
           <div className="d-flex justify-content-center flex-wrap">
             <div className="countdown-box">
