@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: rsvps
+    // Document ID: auto-generated
+    // Fields:
+    //   - name: string (required, max 100 chars)
+    //   - attendance: string (required, 'yes' or 'no')
+    //   - guests: string (optional, max 10 chars)
+    //   - wishes: string (optional, max 1000 chars)
+    //   - createdAt: timestamp (required)
+    //
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    function hasRequiredFields(fields) {
+       return request.resource.data.keys().hasAll(fields);
+    }
+    function validStringLength(field, minLen, maxLen) {
+       return request.resource.data[field] is string &&
+         request.resource.data[field].size() >= minLen &&
+         request.resource.data[field].size() <= maxLen;
+    }
+    function isValidOptionalString(field, minLen, maxLen) {
+      return !(field in request.resource.data) ||
+             (request.resource.data[field] is string &&
+              request.resource.data[field].size() >= minLen &&
+              request.resource.data[field].size() <= maxLen);
+    }
+    
+    // Domain Validators
+    function isValidRSVP(data) {
+      return hasRequiredFields(['name', 'attendance', 'createdAt']) &&
+             validStringLength('name', 1, 100) &&
+             data.attendance in ['yes', 'no'] &&
+             isValidOptionalString('guests', 1, 10) &&
+             isValidOptionalString('wishes', 0, 1000) &&
+             data.createdAt is timestamp;
+    }
+
+    match /rsvps/{rsvpId} {
+      // Allow public read so we can show the marquee of attendees
+      allow read: if true;
+      // Allow public create so guests can submit RSVPs
+      allow create: if isValidRSVP(request.resource.data);
+      // Disallow updates and deletes
+      allow update, delete: if false;
+    }
+  }
+}

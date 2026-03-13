@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "RSVP": {
+      "title": "RSVP",
+      "description": "A guest's response to the wedding invitation.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the guest."
+        },
+        "attendance": {
+          "type": "string",
+          "enum": ["yes", "no"],
+          "description": "Whether the guest will attend."
+        },
+        "guests": {
+          "type": "string",
+          "description": "Number of guests attending."
+        },
+        "wishes": {
+          "type": "string",
+          "description": "Wishes for the couple."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the RSVP was submitted."
+        }
+      },
+      "required": ["name", "attendance", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/rsvps/{rsvpId}": {
+      "schema": { "$ref": "#/entities/RSVP" },
+      "description": "Collection of RSVPs."
+    }
+  }
+}
