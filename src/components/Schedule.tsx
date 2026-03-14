@@ -5,27 +5,27 @@ import { Users, BookHeart, Utensils, Music } from 'lucide-react';
 const Schedule: React.FC = () => {
   const events = [
     {
-      time: "17:00",
+      time: "16:00",
       title: "Đón Khách",
       description: "Cùng chụp những bức ảnh kỷ niệm tuyệt đẹp với cô dâu chú rể.",
       icon: <Users size={30} />
     },
     {
+      time: "17:00",
+      title: "Nhập Tiệc",
+      description: "Kính mời quý khách dùng bữa tiệc thân mật cùng gia đình.",
+      icon: <Utensils size={30} />
+    },
+    {
       time: "18:30",
-      title: "Làm Lễ",
-      description: "Cùng chứng kiến khoảnh khắc thiêng liêng khi hai người trao lời thề nguyện.",
+      title: "Làm Lễ Ra Mắt",
+      description: "Cô dâu chú rể chính thức ra mắt và nâng ly chúc mừng cùng quan khách.",
       icon: <BookHeart size={30} />
     },
     {
       time: "19:00",
-      title: "Khai Tiệc",
-      description: "Thưởng thức bữa tối ấm cúng và những ly rượu vang ngọt ngào.",
-      icon: <Utensils size={30} />
-    },
-    {
-      time: "20:30",
-      title: "Khiêu Vũ & Trò Chơi",
-      description: "Hòa mình vào âm nhạc và những trò chơi vui nhộn cùng mọi người.",
+      title: "Giao Lưu Văn Nghệ",
+      description: "Cùng hòa mình vào những tiết mục ca hát, văn nghệ chung vui mang đậm chất miền Tây.",
       icon: <Music size={30} />
     }
   ];

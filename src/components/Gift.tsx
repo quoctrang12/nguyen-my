@@ -26,28 +26,28 @@ const Gift: React.FC = () => {
                   <div className="card border-0 shadow-sm rounded-4 p-4 h-100">
                     <h5 className="mb-3">Mừng Cưới Chú Rể</h5>
                     <img 
-                      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=GroomBankInfo" 
-                      alt="QR Code Chú Rể" 
-                      className="img-fluid mb-3 mx-auto"
-                      style={{ maxWidth: '180px' }}
+                      src="https://img.vietqr.io/image/sacombank-070120685978-compact2.png?accountName=NGUYEN%20THAI%20NGUYEN" 
+                      alt="QR Code VietQR Chú Rể" 
+                      className="img-fluid mb-3 mx-auto rounded"
+                      style={{ maxWidth: '220px' }}
                     />
-                    <p className="mb-1 fw-bold">Ngân hàng Vietcombank</p>
-                    <p className="mb-0 text-muted small">STK: 0123456789</p>
-                    <p className="mb-0 text-muted small">Tên: NGUYEN VAN A</p>
+                    <p className="mb-1 fw-bold">Ngân hàng Sacombank</p>
+                    <p className="mb-0 text-muted small">STK: 070120685978</p>
+                    <p className="mb-0 text-muted small">Tên: NGUYEN THAI NGUYEN</p>
                   </div>
                 </div>
                 <div className="col-sm-6">
                   <div className="card border-0 shadow-sm rounded-4 p-4 h-100">
                     <h5 className="mb-3">Mừng Cưới Cô Dâu</h5>
                     <img 
-                      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=BrideBankInfo" 
-                      alt="QR Code Cô Dâu" 
-                      className="img-fluid mb-3 mx-auto"
-                      style={{ maxWidth: '180px' }}
+                      src="https://img.vietqr.io/image/sacombank-070139735402-compact2.png?accountName=HUYNH%20KIEU%20MY" 
+                      alt="QR Code VietQR Cô Dâu" 
+                      className="img-fluid mb-3 mx-auto rounded"
+                      style={{ maxWidth: '220px' }}
                     />
-                    <p className="mb-1 fw-bold">Ngân hàng TPBank</p>
-                    <p className="mb-0 text-muted small">STK: 9876543210</p>
-                    <p className="mb-0 text-muted small">Tên: TRAN THI B</p>
+                    <p className="mb-1 fw-bold">Ngân hàng Sacombank</p>
+                    <p className="mb-0 text-muted small">STK: 070139735402</p>
+                    <p className="mb-0 text-muted small">Tên: HUYNH KIEU MY</p>
                   </div>
                 </div>
               </div>
