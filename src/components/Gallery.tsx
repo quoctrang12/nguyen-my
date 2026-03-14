@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 
 const Gallery: React.FC = () => {
+  const [perPage, setPerPage] = useState(8);
   const [visibleImages, setVisibleImages] = useState(8);
+
   const images = [
     "/1.jpg",
     "/11375560641684761172.jpg",
@@ -41,8 +43,24 @@ const Gallery: React.FC = () => {
     "/84151242961387821711.jpg"
   ];
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const updatePerPage = () => {
+      const per = mediaQuery.matches ? 4 : 8;
+      setPerPage(per);
+      setVisibleImages(prev => {
+        const clamped = Math.min(prev, images.length);
+        return mediaQuery.matches ? Math.min(clamped, per) : Math.max(clamped, per);
+      });
+    };
+
+    updatePerPage();
+    mediaQuery.addEventListener?.('change', updatePerPage);
+    return () => mediaQuery.removeEventListener?.('change', updatePerPage);
+  }, [images.length]);
+
   const handleShowMore = () => {
-    setVisibleImages(prev => Math.min(prev + 8, images.length));
+    setVisibleImages(prev => Math.min(prev + perPage, images.length));
   };
 
   return (
